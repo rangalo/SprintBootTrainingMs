@@ -19,7 +19,8 @@ public class BookingController {
 
     @RequestMapping("/booking/{id}")
     public String DoBooking(@PathVariable("id") String eventId){
-        ResponseEntity<String> response = this.restTemplate.postForEntity("http://event-service/allocateTicket", eventId, String.class);
+        ResponseEntity<String> response = this.restTemplate
+                .postForEntity("http://event-service/allocateTicket", eventId, String.class);
 
         return response.getBody();
     }
